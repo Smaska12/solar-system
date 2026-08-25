@@ -13,11 +13,63 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     background: radial-gradient(circle, #ffd700, #ff8c00);
     border-radius: 50%;
     box-shadow: 0 0 40px #ff8c00;
     filter: blur(2px);
     z-index: 1;
+}
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate linear infinite;
+}
+
+.planet {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    filter: blur(0.5px);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.mercury-orbit {
+    width: 200px;
+    height: 200px;
+    animation-duration: 10s;
+}
+
+.mercury {
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background: radial-gradient(circle at 20% 20%, #a8a8a8, #5c5c5c 60%, #2b2b2b);
+    box-shadow: inset -10px 0px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.venus-orbit {
+    width: 350px;
+    height: 350px;
+    animation-duration: 15s;
+}
+
+.venus {
+    width: 50px;
+    height: 50px;
+    right: -25px;
+    background: radial-gradient(circle at 30% 50%, #fff5cc, #e6c200 40%, #d35400 80%, #8a3300);
+    box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
 }
