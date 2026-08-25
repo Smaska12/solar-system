@@ -17,8 +17,12 @@
     height: 120px;
     background: radial-gradient(circle, #ffd700, #ff8c00);
     border-radius: 50%;
-    box-shadow: 0 0 40px #ff8c00;
-    filter: blur(2px);
+    box-shadow: 
+        0 0 60px 5px #ff8c00,
+        0 0 120px 10px #ffbb00,
+        0 0 180px 20px #ffcd42,
+        0 0 240px 40px #ffdd7f;
+    filter: blur(1px);
     z-index: 1;
 }
 
@@ -67,6 +71,55 @@
     right: -25px;
     background: radial-gradient(circle at 30% 50%, #fff5cc, #e6c200 40%, #d35400 80%, #8a3300);
     box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.earth-orbit {
+    width: 500px;
+    height: 500px;
+    animation-duration: 20s;
+}
+
+.earth {
+    width: 50px;
+    height: 50px;
+    right: -25px;
+    background: radial-gradient(ellipse at 30% 30%, #2d5016 0%, transparent 35%),
+        radial-gradient(ellipse at 60% 70%, #4a7c2e 0%, transparent 30%),
+        radial-gradient(ellipse at 20% 90%, #4a7c2e 0%, transparent 20%),
+        radial-gradient(ellipse at 90% 10%, #4a7c2e 0%, transparent 40%),
+        radial-gradient(circle at 30% 30%, #1e90ff, #0066cc 40%, #003d7a 80%);
+    box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.mars-orbit {
+    width: 650px;
+    height: 650px;
+    animation-duration: 25s;
+}
+
+.mars {
+    width: 30px;
+    height: 30px;
+    right: -15px;
+    background: radial-gradient(circle at left, #f14901 30%, #900000 70%, transparent);
+    box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.jupiter-orbit {
+    width: 850px;
+    height: 850px;
+    animation-duration: 32s;
+}
+
+.jupiter {
+    width: 100px;
+    height: 100px;
+    right: -50px;
+    background: radial-gradient(ellipse at 40% 60%, rgba(180, 50, 30, 0.4) 0%, transparent 25%),
+        linear-gradient(#d4a373, #e9c496 20%, #d4a373 40%, #e9c496 60%, #d4a373 80%, #e9c496);
+    box-shadow: inset -15px -10px 25px rgba(0, 0, 0, 0.5),
+        inset 5px 5px 15px rgba(255, 255, 255, 0.3);
+    filter: blur(0.5px);
 }
 
 @keyframes rotate {

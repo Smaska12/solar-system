@@ -1,22 +1,28 @@
 const canvas = document.getElementById('stars');
 const ctx = canvas.getContext('2d');
 
+const STAR_COUNT = 200;
+let stars = []
+function initStars() {
+    stars = Array.from({ length: STAR_COUNT }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5 + 0.3,
+        baseAlpha: Math.random() * 0.5 + 0.2,
+        twinkleSpeed: Math.random() * 0.008 + 0.0008,
+        phase: Math.random() * Math.PI * 2
+    }));
+} 
+
 function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    initStars()
 }
 resize();
 window.addEventListener('resize', resize);
 
-const STAR_COUNT = 200;
-const stars = Array.from({ length: STAR_COUNT }, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    radius: Math.random() * 1.5 + 0.3,
-    baseAlpha: Math.random() * 0.5 + 0.2,
-    twinkleSpeed: Math.random() * 0.008 + 0.0008,
-    phase: Math.random() * Math.PI * 2
-}));
+
 
 let shootingStars = [];
 
