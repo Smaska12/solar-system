@@ -1,3 +1,7 @@
+html, body {
+    overflow: hidden;
+}
+
 #stars {
   position: fixed;
   top: 0;
@@ -110,8 +114,8 @@
 }
 
 .jupiter-orbit {
-    width: 850px;
-    height: 850px;
+    width: 900px;
+    height: 900px;
     animation-duration: 32s;
 }
 
@@ -136,8 +140,8 @@
 }
 
 .saturn-orbit {
-    width: 1100px;
-    height: 1100px;
+    width: 1150px;
+    height: 1150px;
     animation-duration: 45s;
 }
 
@@ -163,6 +167,36 @@
     filter: blur(1px);
     animation: ringMove linear 4s infinite;
     pointer-events: none;
+}
+
+.uranus-orbit {
+    width: 1350px;
+    height: 1350px;
+    animation-duration: 60s;
+}
+
+.uranus {
+    width: 50px;
+    height: 50px;
+    right: -25px;
+    background: linear-gradient(#ACE5EE, #62AEE7, #ACE5EE, #62AEE7);
+    box-shadow: inset -15px -10px 25px rgba(0, 0, 0, 0.9),
+        inset 5px 5px 15px rgba(252, 229, 152, 0.2);
+}
+
+.neptune-orbit {
+    width: 1500px;
+    height: 1500px;
+    animation-duration: 90s;
+}
+
+.neptune {
+    width: 50px;
+    height: 50px;
+    right: -25px;
+    background: linear-gradient(#2E5A98, #3F54BA, #2E5A98, #3F54BA);
+    box-shadow: inset -15px -10px 25px rgba(0, 0, 0, 1),
+        inset 5px 5px 15px rgba(252, 229, 152, 0.1);
 }
 
 @keyframes sunPulse {
