@@ -13,39 +13,50 @@
         <!-- Орбита Меркурия -->
         <div class="orbit mercury-orbit">
             <!-- Сама планета -->
-            <div class="planet mercury"></div>
+            <div class="planet mercury" data-name="mercury"></div>
         </div>
         
         <div class="orbit venus-orbit">
-            <div class="planet venus"></div>
+            <div class="planet venus" data-name="venus"></div>
         </div>
 
         <div class="orbit earth-orbit">
-            <div class="planet earth"></div>
+            <div class="planet earth" data-name="earth"></div>
         </div>
         
         <div class="orbit mars-orbit">
-            <div class="planet mars"></div>
+            <div class="planet mars" data-name="mars"></div>
         </div>
 
         <canvas id="asteroids"></canvas>
 
         <div class="orbit jupiter-orbit">
-            <div class="planet jupiter"></div>
+            <div class="planet jupiter" data-name="jupiter"></div>
         </div>
 
         <div class="orbit saturn-orbit">
-            <div class="planet saturn">
+            <div class="planet saturn" data-name="saturn">
                 <div class="ring"></div>
             </div>
         </div>
 
         <div class="orbit uranus-orbit">
-            <div class="planet uranus"></div>
+            <div class="planet uranus" data-name="uranus"></div>
         </div>
 
         <div class="orbit neptune-orbit">
-            <div class="planet neptune"></div>
+            <div class="planet neptune" data-name="neptune"></div>
+        </div>
+
+        <div class="overlay"></div>
+        <div class="modal">
+            <ul>
+                <li class="modal-title"></li>
+                <li class="modal-temp"></li>
+                <li class="modal-desc"></li>
+            </ul>
+            <img src="" alt="Планета" class="modal-img">
+            <button class="close-modal">x</button>
         </div>
 
         <canvas id="stars"></canvas>
@@ -53,5 +64,6 @@
 
     <script src="script/script.js"></script>
     <script src="script/asteroids.js"></script>
+    <script src="script/planetInfo.js"></script>
 </body>
 </html>

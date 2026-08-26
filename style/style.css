@@ -38,6 +38,7 @@ html, body {
     border-radius: 50%;
     transform: translate(-50%, -50%);
     animation: rotate linear infinite;
+    pointer-events: none;
 }
 
 .planet {
@@ -46,6 +47,8 @@ html, body {
     transform: translateY(-50%);
     filter: blur(0.5px);
     border-radius: 50%;
+    pointer-events: auto;
+    cursor: pointer;
     z-index: 1;
 }
 
@@ -197,6 +200,93 @@ html, body {
     background: linear-gradient(#2E5A98, #3F54BA, #2E5A98, #3F54BA);
     box-shadow: inset -15px -10px 25px rgba(0, 0, 0, 1),
         inset 5px 5px 15px rgba(252, 229, 152, 0.1);
+}
+
+.modal {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+    box-shadow: 
+        inset -15px -10px 25px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(120, 80, 255, 0.35),
+        0 10px 30px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, 
+        rgba(76, 29, 149, 0.5), 
+        rgba(15, 23, 87, 0.6));
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(147, 197, 255, 0.25);
+    padding: 20px;
+    box-sizing: border-box;
+    color: #e0e7ff;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 11;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal ul li {
+    font-size: 24px;
+}
+
+.modal-img {
+    position: absolute;
+    transform: translateX(45%);
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.close-modal:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.overlay.active {
+    display: block;
 }
 
 @keyframes sunPulse {
