@@ -2,7 +2,7 @@
     const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
 
-    const STAR_COUNT = 200;
+    const STAR_COUNT = 300;
     let stars = []
     function initStars() {
         stars = Array.from({ length: STAR_COUNT }, () => ({
@@ -46,16 +46,20 @@
         stars.forEach(star => {
             const twinkle = Math.sin(time * star.twinkleSpeed * window.timeScale + star.phase);
             const alpha = star.baseAlpha + twinkle * 0.3;
+            const radius = star.radius * window.pageScale;
             ctx.beginPath();
-            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            ctx.arc(star.x, star.y, radius, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0, alpha)})`;
             ctx.fill();
         });
 
         maybeSpawnShootingStar();
         shootingStars.forEach(s => {
-            const tailX = s.x - s.length * Math.cos(s.angle);
-            const tailY = s.y - s.length * Math.sin(s.angle);
+            const scale = window.pageScale;
+            const length = s.length * scale;
+
+            const tailX = s.x - length * Math.cos(s.angle);
+            const tailY = s.y - length * Math.sin(s.angle);
 
             const tailGradient = ctx.createLinearGradient(s.x, s.y, tailX, tailY);
             tailGradient.addColorStop(0, `rgba(255, 244, 200, ${s.alpha})`);
@@ -64,12 +68,12 @@
 
             ctx.beginPath();
             ctx.strokeStyle = tailGradient;
-            ctx.lineWidth = 2;
+            ctx.lineWidth = 2 * scale;
             ctx.moveTo(s.x, s.y);
             ctx.lineTo(tailX, tailY);
             ctx.stroke();
 
-            const glowRadius = 8;
+            const glowRadius = 8 * scale;
             const glow = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, glowRadius);
             glow.addColorStop(0, `rgba(255, 250, 220, ${s.alpha})`);
             glow.addColorStop(0.5, `rgba(255, 250, 220, ${s.alpha * 0.3})`);
@@ -81,7 +85,7 @@
             ctx.fill();
 
             ctx.beginPath();
-            ctx.arc(s.x, s.y, 2, 0, Math.PI * 2);
+            ctx.arc(s.x, s.y, 2 * scale, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(255, 250, 220, ${s.alpha})`;
             ctx.fill();
 

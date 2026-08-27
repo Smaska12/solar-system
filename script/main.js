@@ -1,4 +1,6 @@
 window.timeScale = 1;
+window.pageScale = 1;
+
 const btn = document.querySelector('.space-speed');
 
 btn.addEventListener('click', () => {
@@ -16,6 +18,8 @@ function updateScale() {
         (window.innerWidth - margin) / designSize,
         (window.innerHeight - margin) / designSize
     );
+
+    window.pageScale = scale;
     document.documentElement.style.setProperty('--page-scale', scale);
 }
 
