@@ -28,7 +28,7 @@
     let shootingStars = [];
 
     function maybeSpawnShootingStar() {
-        if (Math.random() < 0.003) { 
+        if (Math.random() < 0.003 * window.timeScale) { 
         shootingStars.push({
             x: Math.random() * canvas.width,
             y: 0,
@@ -44,7 +44,7 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         stars.forEach(star => {
-            const twinkle = Math.sin(time * star.twinkleSpeed + star.phase);
+            const twinkle = Math.sin(time * star.twinkleSpeed * window.timeScale + star.phase);
             const alpha = star.baseAlpha + twinkle * 0.3;
             ctx.beginPath();
             ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
@@ -85,9 +85,9 @@
             ctx.fillStyle = `rgba(255, 250, 220, ${s.alpha})`;
             ctx.fill();
 
-            s.x += s.speed * Math.cos(s.angle);
-            s.y += s.speed * Math.sin(s.angle);
-            s.alpha -= 0.01;
+            s.x += s.speed * Math.cos(s.angle) * window.timeScale;
+            s.y += s.speed * Math.sin(s.angle) * window.timeScale;
+            s.alpha -= 0.01 * window.timeScale;
         });
         shootingStars = shootingStars.filter(s => s.alpha > 0);
 

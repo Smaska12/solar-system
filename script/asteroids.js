@@ -35,7 +35,7 @@
         const centerY = asteroidCanvas.height / 2;
 
         asteroids.forEach(ast => {
-            ast.angle += ast.speed;
+            ast.angle += ast.speed * window.timeScale;
 
             const x = centerX + Math.cos(ast.angle) * ast.distance;
             const y = centerY + Math.sin(ast.angle) * ast.distance;

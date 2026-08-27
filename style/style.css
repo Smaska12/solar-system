@@ -1,3 +1,7 @@
+:root {
+    --timeScale: 1;
+}
+
 html, body {
     overflow: hidden;
 }
@@ -37,7 +41,7 @@ html, body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    animation: rotate linear infinite;
+    /* animation: rotate linear infinite; */
     pointer-events: none;
 }
 
@@ -289,6 +293,34 @@ html, body {
     display: block;
 }
 
+.space-speed {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    font-size: 32px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    transform: translate(-50%, 0%);
+    width: 200px;
+    height: 100px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    box-shadow: 
+        inset -15px -10px 25px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(120, 80, 255, 0.35),
+        0 10px 30px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, 
+        rgba(76, 29, 149, 0.5), 
+        rgba(15, 23, 87, 0.6));
+    cursor: pointer;
+    transition: background-color 0.2s;
+    z-index: 111;
+}
+
+.space-speed:hover {
+    background-color: rgba(120, 80, 255, 0.2);
+}
+
 @keyframes sunPulse {
     0% {
         transform: translate(-50%, -50%) scale(1);
@@ -310,7 +342,7 @@ html, body {
     100% { transform: translate(-50%, -50%) rotateX(80deg) rotateY(10deg); }
 }
 
-@keyframes rotate {
+/* @keyframes rotate {
     from { transform: translate(-50%, -50%) rotate(0deg); }
     to { transform: translate(-50%, -50%) rotate(360deg); }
-}
+} */
