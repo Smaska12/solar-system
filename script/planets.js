@@ -1,4 +1,6 @@
 (function() {
+    const space = document.querySelector('.space');
+    window.planetsFrozen = false;
     const orbitsData = [
         { el: document.querySelector('.mercury-orbit'), speed: 360 / (20 * 60) },
         { el: document.querySelector('.venus-orbit'), speed: 360 / (25 * 60) },
@@ -15,7 +17,7 @@
     });
 
     function animatePlanets() {
-        const scale = window.timeScale || 1;
+        const scale = window.planetsFrozen ? 0 : (window.timeScale || 1);
 
         orbitsData.forEach(orbit => {
             orbit.angle += orbit.speed * scale;
@@ -25,6 +27,17 @@
 
         requestAnimationFrame(animatePlanets);
     }
+
+    space.addEventListener('mouseover', (event) => {
+        if (event.target.classList.contains('planet')) {
+            window.planetsFrozen = true;
+        }
+    })
+    space.addEventListener('mouseout', (event) => {
+        if (event.target.classList.contains('planet')) {
+            window.planetsFrozen = false;
+        }
+    })
 
     animatePlanets();
 })();
