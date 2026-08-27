@@ -8,3 +8,16 @@ btn.addEventListener('click', () => {
 
     btn.textContent = window.timeScale + "x";
 })
+
+function updateScale() {
+    const designSize = 1600;
+    const margin = 40;
+    const scale = Math.min(
+        (window.innerWidth - margin) / designSize,
+        (window.innerHeight - margin) / designSize
+    );
+    document.documentElement.style.setProperty('--page-scale', scale);
+}
+
+updateScale();
+window.addEventListener('resize', updateScale);

@@ -1,5 +1,6 @@
 (function() {
     const asteroidCanvas = document.getElementById('asteroids');
+    const space = document.querySelector('.space');
     const ctx2 = asteroidCanvas.getContext('2d');
 
     const countAsteroids = 300;
@@ -24,8 +25,8 @@
     }
 
     function resizeAsteroids() {
-        asteroidCanvas.width = window.innerWidth;
-        asteroidCanvas.height = window.innerHeight;
+        asteroidCanvas.width = space.clientWidth;
+        asteroidCanvas.height = space.clientHeight;
         initAsteroids()
     }
 
